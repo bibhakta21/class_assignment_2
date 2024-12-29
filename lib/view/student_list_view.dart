@@ -15,7 +15,7 @@ class StudentView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Student Detail'),
+        title: const Text('Student Details'),
         centerTitle: true,
       ),
       body: SafeArea(

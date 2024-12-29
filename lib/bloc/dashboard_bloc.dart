@@ -1,4 +1,4 @@
-import 'package:class_assignment_2/view/area_circle_view.dart';
+import 'package:class_assignment_2/view/area_of_circle_view.dart';
 import 'package:class_assignment_2/view/simple_interest_view.dart';
 import 'package:class_assignment_2/view/student_list_view.dart';
 import 'package:flutter/material.dart';
