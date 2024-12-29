@@ -1,9 +1,10 @@
+import 'package:class_assignment_2/bloc/student/student_list_bloc.dart';
+import 'package:class_assignment_2/bloc/student/student_list_event.dart';
+import 'package:class_assignment_2/bloc/student/student_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/student/student_list_bloc.dart';
-import '../bloc/student/student_list_event.dart';
-import '../bloc/student/student_state.dart';
+
 
 class StudentView extends StatelessWidget {
   final _nameController = TextEditingController();

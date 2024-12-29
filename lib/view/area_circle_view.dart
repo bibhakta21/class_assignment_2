@@ -1,14 +1,14 @@
+import 'package:class_assignment_2/bloc/area_circle/area_of_circle_bloc.dart';
+import 'package:class_assignment_2/bloc/area_circle/area_of_circle_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../bloc/area_circle/area_of_circle_bloc.dart';
-import '../bloc/area_circle/area_of_circle_event.dart';
 
 class AreaCircleView extends StatelessWidget {
   const AreaCircleView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Access the AreaCircleBloc instance
     final areaCircleBloc = BlocProvider.of<AreaCircleBloc>(context);
     final TextEditingController radiusController = TextEditingController();
 
@@ -23,7 +23,7 @@ class AreaCircleView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Radius Input
+              // TextField for inputting radius
               TextField(
                 controller: radiusController,
                 keyboardType: TextInputType.number,
@@ -34,7 +34,7 @@ class AreaCircleView extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // Area Display Using BlocBuilder
+              // BlocBuilder listens to state changes and updates the UI with the area
               BlocBuilder<AreaCircleBloc, double>(
                 builder: (context, area) {
                   return Center(
@@ -50,7 +50,7 @@ class AreaCircleView extends StatelessWidget {
               ),
               const SizedBox(height: 24),
 
-              // Calculate Button
+              // Button to trigger area calculation
               SizedBox(
                 height: 48,
                 child: ElevatedButton(
@@ -58,10 +58,10 @@ class AreaCircleView extends StatelessWidget {
                     final radius =
                         double.tryParse(radiusController.text) ?? 0.0;
                     if (radius > 0) {
-                      // Dispatch event to calculate area
+                   
                       areaCircleBloc.add(CalculateAreaEvent(radius));
                     } else {
-                      // Show a snackbar if the radius is invalid
+                      // error message if radius is invalid
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('Please enter a valid radius!'),
